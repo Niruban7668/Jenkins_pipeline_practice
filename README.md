@@ -27,12 +27,12 @@ These instructions will help you set up and run the project on your local machin
 1. **Clone the Original Repository**:
 
    ```bash
-   git clone <link_of_repository>
-   cd <repository_name>
+   git clone https://github.com/shoyo/react-flask-docker-boilerplate.git
+   cd react-flask-docker-boilerplate
+   bash
+2. Update Dependencies:
 
-    Update Dependencies:
-
-    Update the dependencies by modifying requirements.txt:
+   Update the dependencies by modifying requirements.txt:
 
     bash
 

@@ -10,7 +10,6 @@ This project involves cloning a Git repository, updating dependencies, and setti
 - [Setting Up Jenkins](#setting-up-jenkins)
 - [Jenkins Pipeline Configuration](#jenkins-pipeline-configuration)
 - [Running the Pipeline](#running-the-pipeline)
-- [License](#license)
 
 ## Getting Started
 
@@ -30,11 +29,11 @@ These instructions will help you set up and run the project on your local machin
    git clone https://github.com/Niruban7668/cloned.git
    cd cloned
    bash
-2. Update Dependencies:
+2. **Update Dependencies**:
 
    Update the dependencies if any by modifying requirements.txt
 
-3. Create a New Repository and Push Changes:
+3. **Create a New Repository and Push Changes**:
 
    After modifying the repository, push it to your own GitHub repository:
    
@@ -48,9 +47,9 @@ These instructions will help you set up and run the project on your local machin
 
 ## Setting Up Jenkins
 
-   Download and Install Jenkins on Linux:
+   ### Download and Install Jenkins on Linux
 
-   Update your packages and install Jenkins:
+   ### Update your packages and install Jenkins
 
    bash
 
@@ -64,9 +63,7 @@ These instructions will help you set up and run the project on your local machin
       sudo apt update
       sudo apt install jenkins -y
 
-   Start Jenkins and Access the Web Interface:
-
-   Start Jenkins and check its status:
+   ### Start Jenkins and Access the Web Interface:
 
    bash
 
@@ -79,68 +76,25 @@ These instructions will help you set up and run the project on your local machin
 
     sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
-   Install Plugins and Configure Jenkins:
+   ### Install Plugins and Configure Jenkins:
 
    Follow the setup instructions on the Jenkins web interface to install recommended plugins.
 
 ## Jenkins Pipeline Configuration
 
-   Create a New Pipeline:
+   ### Create a New Pipeline
 
    In the Jenkins dashboard, select New Item > Pipeline, and name it as per your wish.
 
-   Add Pipeline Script:
+   ### Add Pipeline Script:
 
-   Use the following pipeline script in the Pipeline section:
+   Use the [groovy script](./pipeline_configuration.groovy) to setup configuration
 
-    groovy
+   Save the Pipeline
 
-    pipeline {
-        agent any
-        
-        stages {
-            stage('Clone Repository') {
-                steps {
-                    git 'https://github.com/yourusername/cloned.git'
-                }
-            }
-            
-            stage('Install Dependencies') {
-                steps {
-                    sh 'pip install -r requirements.txt'
-                }
-            }
-            
-            stage('Build') {
-                steps {
-                    echo "Building the project..."
-                    // Add build commands here
-                }
-            }
-            
-            stage('Test') {
-                steps {
-                    echo "Running tests..."
-                    // Add test commands here
-                }
-            }
-            
-            stage('Deploy') {
-                steps {
-                    echo "Deploying the application..."
-                    // Add deployment commands here
-                }
-            }
-        }
-    }
+## Running the Pipeline
 
-    Save the Pipeline:
+   Once your pipeline is set up in Jenkins:
 
-    Save and configure the pipeline to automatically build on code changes if desired.
-
-Running the Pipeline
-
-Once your pipeline is set up in Jenkins:
-
-    Trigger the build manually or configure a webhook for automatic triggering.
-    View logs and status on the Jenkins dashboard.
+   Trigger the build manually or configure a webhook for automatic triggering.
+   View logs and status on the Jenkins dashboard.

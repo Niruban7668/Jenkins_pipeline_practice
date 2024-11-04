@@ -27,76 +27,71 @@ These instructions will help you set up and run the project on your local machin
 1. **Clone the Original Repository**:
 
    ```bash
-   git clone https://github.com/shoyo/react-flask-docker-boilerplate.git
-   cd react-flask-docker-boilerplate
+   git clone https://github.com/Niruban7668/cloned.git
+   cd cloned
    bash
 2. Update Dependencies:
 
-   Update the dependencies by modifying requirements.txt:
+   Update the dependencies if any by modifying requirements.txt
 
-    bash
+3. Create a New Repository and Push Changes:
 
-# Open requirements.txt and add any necessary dependencies
-echo "new_dependency==version" >> requirements.txt
+   After modifying the repository, push it to your own GitHub repository:
+   
+   bash
+   
+       git init
+       git add .
+       git commit -m "Initial commit with updated requirements"
+       git remote add origin https://github.com/yourusername/cloned.git
+       git push -u origin main
 
-Create a New Repository and Push Changes:
+## Setting Up Jenkins
 
-After modifying the repository, push it to your own GitHub repository:
+   Download and Install Jenkins on Linux:
 
-bash
+   Update your packages and install Jenkins:
 
-    git init
-    git add .
-    git commit -m "Initial commit with updated requirements"
-    git remote add origin https://github.com/yourusername/cloned.git
-    git push -u origin main
+   bash
 
-Setting Up Jenkins
+      sudo apt update
+      sudo apt install openjdk-11-jdk -y
+      curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+          /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+      echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+          https://pkg.jenkins.io/debian binary/ | sudo tee \
+          /etc/apt/sources.list.d/jenkins.list > /dev/null
+      sudo apt update
+      sudo apt install jenkins -y
 
-    Download and Install Jenkins on Linux:
+   Start Jenkins and Access the Web Interface:
 
-    Update your packages and install Jenkins:
+   Start Jenkins and check its status:
 
-    bash
+   bash
 
-sudo apt update
-sudo apt install openjdk-11-jdk -y
-curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
-    /usr/share/keyrings/jenkins-keyring.asc > /dev/null
-echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
-    https://pkg.jenkins.io/debian binary/ | sudo tee \
-    /etc/apt/sources.list.d/jenkins.list > /dev/null
-sudo apt update
-sudo apt install jenkins -y
+      sudo systemctl start jenkins
+      sudo systemctl status jenkins
 
-Start Jenkins and Access the Web Interface:
+   Access Jenkins at http://localhost:8080, and use the initial admin password:
 
-Start Jenkins and check its status:
-
-bash
-
-sudo systemctl start jenkins
-sudo systemctl status jenkins
-
-Access Jenkins at http://localhost:8080, and use the initial admin password:
-
-bash
+   bash
 
     sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
-    Install Plugins and Configure Jenkins:
+   Install Plugins and Configure Jenkins:
 
-    Follow the setup instructions on the Jenkins web interface to install recommended plugins.
+   Follow the setup instructions on the Jenkins web interface to install recommended plugins.
 
-Jenkins Pipeline Configuration
+## Jenkins Pipeline Configuration
 
-    Create a New Pipeline:
+   Create a New Pipeline:
 
-    In the Jenkins dashboard, select New Item > Pipeline, and name it cloned_pipeline.
+   In the Jenkins dashboard, select New Item > Pipeline, and name it as per your wish.
 
-    Add Pipeline Script:
+   Add Pipeline Script:
 
-    Use the following pipeline script in the Pipeline section:
+   Use the following pipeline script in the Pipeline section:
 
     groovy
 

@@ -26,8 +26,8 @@ These instructions will help you set up and run the project on your local machin
 1. **Clone the Original Repository**:
 
    ```bash
-   git clone https://github.com/Niruban7668/cloned.git
-   cd cloned
+   https://github.com/Niruban7668/jenkins_practice_repository.git
+   cd jenkins_practice_repository
    bash
 2. **Update Dependencies**:
 
